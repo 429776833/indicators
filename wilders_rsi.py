@@ -7,6 +7,7 @@ def wilders_rsi(data: typing.List[float or int], window_length: int,
     gains and losses across trading periods.
 
     @author: https://github.com/alphazwest
+    https://www.alpharithms.com/relative-strength-index-rsi-in-python-470209/
 
     Args:
         data: List[float or int] - a collection of floating point values
@@ -42,7 +43,7 @@ def wilders_rsi(data: typing.List[float or int], window_length: int,
             continue
 
         # Calculate price difference with previous period
-        difference = do_round(wilder_data[i] - wilder_data[i - 1])
+        difference = do_round(wilder_data[i] - wilder_data[i - 1]) #wilder_data is wrong ,it should be data
 
         # Record positive differences as gains, negative as losses
         if difference > 0:
