@@ -21,8 +21,8 @@ def pandas_rsi(df: pd.DataFrame, window_length: int = 14, output: str = None, pr
     df['diff'] = df[close].diff(1)
 
     # Calculate Avg. Gains/Losses
-    df['gain'] = df['diff'].clip(lower=0).round(2)
-    df['loss'] = df['diff'].clip(upper=0).abs().round(2)
+    df['gain'] = df['diff'].clip(lower=0).round(2)#remove .round(2)
+    df['loss'] = df['diff'].clip(upper=0).abs().round(2)#remove .round(2)
 
     # Get initial Averages
     df['avg_gain'] = df['gain'].rolling(window=window_length, min_periods=window_length).mean()[:window_length+1]
